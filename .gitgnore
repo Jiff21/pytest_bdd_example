@@ -1,0 +1,33 @@
+
+*.pyc
+.tmp
+.DS_Store
+npm-debug.log
+*__pycache__*
+env
+
+# QA Local Files
+geckodriver.log
+jmeter.log
+server.log
+bmp.log
+qa/geckodriver.log
+qa/jmeter.log
+log.txt
+qa/log.txt
+# Local QA Environment
+qa/env/
+# qa/secrets has it's own .gitignore
+
+# QA Results
+qa/security/results.json
+qa/security/testreport.html
+qa/accessibility/output/*
+qa/results/*
+qa/visual/results/*.png
+qa/visual/reports/
+qa/visual/results/*.json
+qa/utilities/allure/allure_results/*.json
+qa/utilities/allure/allure-reports/*
+qa/performance/results/*.csv
+qa/utilities/modheaders_plugin.zip
