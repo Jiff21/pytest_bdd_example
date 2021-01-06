@@ -20,11 +20,10 @@ def context(scope="module"):
 
 @pytest.fixture
 def client(scope="module"):
-    client = requests.Session()
+    context.session = requests.Session()
     if IAP_ON is True:
-        client.headers.update(bearer_header)
-    return client
-
+        context.session.headers.update(bearer_header)
+    yield
 
 @pytest.fixture
 def driver(context, scope="module"):
