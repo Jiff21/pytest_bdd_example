@@ -1,6 +1,6 @@
-@
-env
-__pycache__
+# Virtual env and run files
+env/
+__pycache__/
 *.pyc
 .tmp
 .DS_Store
