@@ -5,7 +5,7 @@
 .DS_Store
 npm-debug.log
 *__pycache__*
-
+__pycache__/
 
 # QA Local Files
 geckodriver.log
