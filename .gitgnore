@@ -1,10 +1,11 @@
 
+*env/*
 *.pyc
 .tmp
 .DS_Store
 npm-debug.log
 *__pycache__*
-env
+
 
 # QA Local Files
 geckodriver.log
