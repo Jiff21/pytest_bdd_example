@@ -19,7 +19,7 @@ def get(context, client, page_name):
         host=context.host,
         uri=PAGES_DICT[context.page_name]
     )
-    context.response = context.session.get(context.current_url)
+    context.response = client.get(context.current_url)
     return context.response
 
 

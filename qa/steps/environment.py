@@ -23,13 +23,12 @@ def client(scope="module"):
     context.session = requests.Session()
     if IAP_ON is True:
         context.session.headers.update(bearer_header)
-    yield
+    yield context.session
 
 @pytest.fixture
 def driver(context, scope="module"):
     browser = Browser()
     browsers = browser.return_driver_dict()
     context.driver = browsers.get(DRIVER)()
-    yield
+    yield context.driver
     context.driver.quit()
-    # return context
