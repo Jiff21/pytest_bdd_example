@@ -1,14 +1,33 @@
-# Virtual env and run files
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 env/
-*__pycache__*
-*.pyc
+qa/env/
+
 .tmp
 .DS_Store
 npm-debug.log
 
-
-# Local QA Environment
-qa/env/
 
 # qa/secrets has it's own .gitignore
 
