@@ -2,7 +2,7 @@ import re
 import requests
 from pytest_bdd import scenario, given, when, then, parsers
 from environment import context, client
-from qa.settings import PAGES_DICT
+from qa.settings import PAGES_DICT, FEATURE_PATH
 
 @scenario(
     FEATURE_PATH + 'requests_example.feature',
