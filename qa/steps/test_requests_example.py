@@ -2,7 +2,7 @@ import re
 import requests
 from pytest_bdd import scenario, given, when, then, parsers
 from environment import context, client
-from qa.conftest import PAGES_DICT, FEATURE_PATH
+from qa.conftest import PAGES_DICT
 import pytest
 
 
