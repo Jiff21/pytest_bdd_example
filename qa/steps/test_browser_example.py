@@ -1,11 +1,14 @@
 import re
 import requests
+from environment import context, driver
+from functools import partial
 from pytest_bdd import scenario, given, when, then, parsers
-from environment import context, client, driver
 from qa.conftest import PAGES_DICT
 
+# Set file path here in case you have multiple scenarios
+scenario = partial(scenario, 'browser_example.feature')
+
 @scenario(
-    'browser_example.feature',
     'Browser can get correct page',
 )
 def test_browser():

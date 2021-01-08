@@ -1,13 +1,14 @@
 import re
 import requests
-from pytest_bdd import scenario, given, when, then, parsers
 from environment import context, client
+from functools import partial
+from pytest_bdd import scenario, given, when, then, parsers
 from qa.conftest import PAGES_DICT
-import pytest
 
+# Set file path here in case you have multiple scenarios
+scenario = partial(scenario, 'requests_example.feature')
 
 @scenario(
-    'requests_example.feature',
     'Requests goes to expected page',
 )
 def test_requests():
