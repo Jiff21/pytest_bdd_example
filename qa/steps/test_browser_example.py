@@ -2,10 +2,10 @@ import re
 import requests
 from pytest_bdd import scenario, given, when, then, parsers
 from environment import context, client, driver
-from qa.settings import PAGES_DICT, FEATURE_PATH
+from qa.conftest import PAGES_DICT, FEATURE_PATH
 
 @scenario(
-    FEATURE_PATH + 'test_browser_example.feature',
+    'browser_example.feature',
     'Browser can get correct page',
 )
 def test_browser():

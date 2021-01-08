@@ -2,10 +2,12 @@ import re
 import requests
 from pytest_bdd import scenario, given, when, then, parsers
 from environment import context, client
-from qa.settings import PAGES_DICT, FEATURE_PATH
+from qa.conftest import PAGES_DICT, FEATURE_PATH
+import pytest
+
 
 @scenario(
-    FEATURE_PATH + 'requests_example.feature',
+    'requests_example.feature',
     'Requests goes to expected page',
 )
 def test_requests():

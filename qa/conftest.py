@@ -1,5 +1,6 @@
 import logging
 import os
+import pytest
 
 logging.basicConfig()
 log = logging.getLogger('BYNDQA')
@@ -7,7 +8,6 @@ log.setLevel(os.getenv('LOG_LEVEL', 'ERROR'))
 
 DRIVER = os.getenv('DRIVER', 'chrome')
 DRIVER = DRIVER.lower().replace(' ', '_').replace('-', '_')
-FEATURE_PATH = '../features/'
 
 # use `export QA_ENV=name` to set the current envionrment you're testing against
 QA_ENV = os.getenv('QA_ENV', 'local').lower()

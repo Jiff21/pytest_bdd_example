@@ -1,26 +1,48 @@
+# Pytest BDD setup similar to Behave
 
 
-
+## Install
 ```bash
-./qa/utilities/chromedriver.sh
+python3 -m venv qa/env
+source qa/env/bin/activate
 pip install -r qa/requirements.txt
+./qa/utilities/chromedriver.sh
 ```
 
-```bash
-python3 -m pytest
-```
+
+## Run
+
+### Simple Run
+
+Run command with optional `-n` flag to control number of concurrent tests
 
 ```bash
 pytest -n 2
 ```
+
+### Run a single Scenario
+
+```
+pytest qa/steps/test_example.py:
+```
+
+### Run a suite
+
+```
+pytest -m "smoke"
+```
+
+### To Create an Allure Report Locally
 
 ```bash
 pytest --alluredir=./results
 allure generate results -o reports --clean
 allure open reports
 # On subsequent runs
-rm -R results*
+rm -R results/
 cp -R reports/history/ results/history
 ```
-They don't look as pretty maybe https://pypi.org/project/allure-pytest-bdd/?
-Referenced from https://github.com/allure-framework/allure-python
+
+### Tips
+
+More pytest info can be found [here](https://docs.pytest.org/en/stable/example/simple.html).

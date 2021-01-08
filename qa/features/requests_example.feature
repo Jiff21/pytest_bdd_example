@@ -1,4 +1,4 @@
-@normal @cms #priority #feature-name
+@smoke @normal @cms #priority #feature-name
 Feature: Requests can get page
 
     Scenario: Requests goes to expected page
