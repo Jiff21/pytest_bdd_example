@@ -8,7 +8,7 @@ from qa.settings import PAGES_DICT, FEATURE_PATH
     FEATURE_PATH + 'requests_example.feature',
     'Requests goes to expected page',
 )
-def test_publish():
+def test_requests():
     pass
 
 

@@ -8,7 +8,7 @@ from qa.settings import PAGES_DICT, FEATURE_PATH
     FEATURE_PATH + 'test_browser_example.feature',
     'Browser can get correct page',
 )
-def test_publish():
+def test_browser():
     pass
 
 
