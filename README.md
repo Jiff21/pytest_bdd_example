@@ -2,6 +2,7 @@
 
 
 ## Install
+
 ```bash
 python3 -m venv qa/env
 source qa/env/bin/activate
@@ -20,16 +21,26 @@ Run command with optional `-n` flag to control number of concurrent tests
 pytest -n 2
 ```
 
-### Run a single Scenario
+### Run a Single feature
 
-```
-pytest qa/steps/test_example.py:
+```bash
+pytest -k 'requests'
 ```
 
-### Run a suite
+### Run a Single Scenario
 
+Use the associated function name from `@scenerio` decorator.
+
+```bash
+pytest -k 'function_name'
 ```
-pytest -m "smoke"
+
+or tag the test you're working on as `@wip` and use `-m`.
+
+### Run a suite or tag
+
+```bash
+pytest -m 'smoke'
 ```
 
 ### To Create an Allure Report Locally
