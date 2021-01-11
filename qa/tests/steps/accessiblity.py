@@ -4,7 +4,7 @@ from functools import partial
 from pytest_bdd import scenarios, given, when, then, parsers
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from qa.steps.environment import context, driver
+from qa.tests.environment import context, driver
 
 
 def send_key_x_times(context, key, number_of_times):

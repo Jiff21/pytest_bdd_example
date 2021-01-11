@@ -2,7 +2,7 @@ import pytest
 import requests
 from qa.settings import DRIVER, IAP_ON, PAGES_DICT, HOST_URL
 from selenium.webdriver.support.ui import WebDriverWait
-from qa.steps.browser import Browser
+from qa.tests.browser import Browser
 
 class Context(object):
     """An empty object to add stuff to"""
