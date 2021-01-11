@@ -1,18 +1,15 @@
 '''An Example test using Selenium browser.'''
-from qa.steps.environment import context, driver
 from functools import partial
-from pytest_bdd import scenario, given, when, then, parsers
+from pytest_bdd import scenarios, given, when, then, parsers
+from qa.steps.environment import context, driver
 from qa.config.conftest import PAGES_DICT
-import re
-import requests
 
-# Set file path here in case you have multiple scenarios.
-# Part of path set in pytest.ini.
-scenario = partial(scenario, 'browser_example.feature')
-@scenario('Browser can get correct page')
-def test_browser():
-    pass
 
+# Set steps for multiple scenarios, also relative to path set in pytest.ini
+scenarios(
+    'browser_example.feature',
+    'about.feature'
+)
 
 @given(parsers.parse("I get the {page_name} page"))
 @when(parsers.parse("I get the {page_name} page"))

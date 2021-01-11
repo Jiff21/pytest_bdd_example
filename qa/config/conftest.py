@@ -125,6 +125,8 @@ default_headers = {
         'Chrome/76.0.3809.100 Safari/537.36, QA Tests'
     )
 }
+# from pytest_bdd import scenarios
+# scenarios('../features')
 
 # log.info('QA_ENV is set to {}'.format(QA_ENV))
 log.info('DRIVER is set to {}'.format(DRIVER))

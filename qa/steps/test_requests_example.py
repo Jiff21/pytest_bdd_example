@@ -1,9 +1,8 @@
-import re
 import requests
-from qa.steps.environment import context, client
 from functools import partial
-from pytest_bdd import scenario, given, when, then, parsers
+from pytest_bdd import scenario, given, when, then, parsers, scenarios
 from qa.config.conftest import PAGES_DICT
+from qa.steps.environment import context, client
 
 
 # Set file path here in case you have multiple scenarios.
