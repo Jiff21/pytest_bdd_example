@@ -28,7 +28,7 @@ pytest
 source qa/config/test.env
 ## Source Secret variables if you're using IAP
 source qa/secrets/test.env
-# -n set to run tests in parrellel
+# -n set to run tests in parellel
 pytest -n 2
 ```
 
