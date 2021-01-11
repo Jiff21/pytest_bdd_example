@@ -1,16 +1,16 @@
+''' Setting for the pytest-bdd tests'''
 import logging
 import os
-import pytest
 
 logging.basicConfig()
-log = logging.getLogger('BYNDQA')
+log = logging.getLogger('QA')
 log.setLevel(os.getenv('LOG_LEVEL', 'ERROR'))
 
 DRIVER = os.getenv('DRIVER', 'chrome')
 DRIVER = DRIVER.lower().replace(' ', '_').replace('-', '_')
 
 # use `export QA_ENV=name` to set the current envionrment you're testing against
-QA_ENV = os.getenv('QA_ENV', 'local').lower()
+# QA_ENV = os.getenv('QA_ENV', 'local').lower()
 
 ########
 # Overwritten by ENV files
@@ -20,7 +20,7 @@ HOST = os.getenv('HOST', 'localhost')
 PORT = os.getenv('PORT', '3000')
 IAP_ON = bool(os.getenv('IAP_ON', False))
 
-if 'local' in QA_ENV:
+if 'localhost' in HOST:
     HOST_URL = os.getenv('HOST_URL', 'http://%s:%s' % (HOST, PORT))
 else:
     HOST_URL = os.getenv('HOST_URL', 'https://%s' % HOST)
@@ -115,11 +115,18 @@ OK_SRCS = [
 
 default_headers = {
     'Accept-Charset': 'UTF-8',
-    'Accept': 'text/html,application/xhtml+xml,application/xml,application/json,image/webp,image/apng,',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36, QA Tests'
+    'Accept': (
+        'text/html,application/xhtml+xml,application/xml,'
+        'application/json,image/webp,image/apng,'
+    ),
+    'User-Agent': (
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/76.0.3809.100 Safari/537.36, QA Tests'
+    )
 }
 
-log.info('QA_ENV is set to {}'.format(QA_ENV))
+# log.info('QA_ENV is set to {}'.format(QA_ENV))
 log.info('DRIVER is set to {}'.format(DRIVER))
 log.info('IAP_ON is set to {}'.format(IAP_ON))
 log.info('Host url is %s' % HOST_URL)

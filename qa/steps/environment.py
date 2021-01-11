@@ -1,21 +1,31 @@
 import pytest
 import requests
-from browser import Browser
-from qa.conftest import DRIVER, IAP_ON
+from qa.steps.browser import Browser
+from qa.config.conftest import DRIVER, IAP_ON, PAGES_DICT, HOST_URL
 
 class Context(object):
     """An empty object to add stuff to"""
 
     def __init__(self):
-        # self.host = 'https://example.com'
-        pass
+        self.host = HOST_URL
+        print(self.host)
+        # pass
+
+    def human_readable_pages(self, name, host):
+        '''Allow homan readable names for url in .feature files'''
+        name = name.lower()
+        current_url = '{host}{uri}'.format(
+            host=host,
+            uri=PAGES_DICT[name]
+        )
+        return current_url
 
 
 @pytest.fixture
 def context(scope="module"):
     """A context for passing information between steps"""
     context = Context()
-    context.host = 'https://example.com'
+    # context.host = HOST_URL
     return context
 
 

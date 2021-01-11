@@ -13,11 +13,22 @@ pip install -r qa/requirements.txt
 
 ## Run
 
-### Simple Run
+### Local Run
 
-Run command with optional `-n` flag to control number of concurrent tests
+Run tests against Local Dev
 
 ```bash
+pytest
+```
+
+## Run on an environment
+
+```bash
+## Source environmental variables
+source qa/config/test.env
+## Source Secret variables if you're using IAP
+source qa/secrets/test.env
+# -n set to run tests in parrellel
 pytest -n 2
 ```
 

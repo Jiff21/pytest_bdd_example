@@ -1,9 +1,10 @@
 import re
 import requests
-from environment import context, client
+from qa.steps.environment import context, client
 from functools import partial
 from pytest_bdd import scenario, given, when, then, parsers
-from qa.conftest import PAGES_DICT
+from qa.config.conftest import PAGES_DICT
+
 
 # Set file path here in case you have multiple scenarios.
 # Part of path set in pytest.ini.
@@ -15,11 +16,7 @@ def test_requests():
 
 @given(parsers.parse("I get {page_name} using requests"))
 def get(context, client, page_name):
-    context.page_name = page_name.lower()
-    context.current_url = '{host}{uri}'.format(
-        host=context.host,
-        uri=PAGES_DICT[context.page_name]
-    )
+    context.current_url = context.human_readable_pages(page_name, context.host)
     context.response = client.get(context.current_url)
     return context.response
 

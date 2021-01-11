@@ -1,9 +1,10 @@
-import re
-import requests
-from environment import context, driver
+'''An Example test using Selenium browser.'''
+from qa.steps.environment import context, driver
 from functools import partial
 from pytest_bdd import scenario, given, when, then, parsers
-from qa.conftest import PAGES_DICT
+from qa.config.conftest import PAGES_DICT
+import re
+import requests
 
 # Set file path here in case you have multiple scenarios.
 # Part of path set in pytest.ini.
@@ -16,11 +17,7 @@ def test_browser():
 @given(parsers.parse("I get the {page_name} page"))
 @when(parsers.parse("I get the {page_name} page"))
 def get(context, driver, page_name):
-    context.page_name = page_name.lower()
-    context.current_url = '{host}{uri}'.format(
-        host=context.host,
-        uri=PAGES_DICT[context.page_name]
-    )
+    context.current_url = context.human_readable_pages(page_name, context.host)
     context.driver.get(context.current_url)
 
 @then(parsers.parse('I should be on {expected_page}'))
