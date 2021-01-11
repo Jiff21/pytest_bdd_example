@@ -1,4 +1,4 @@
-@normal @cms
+@normal @home
 Feature: Example selenium test 2
 
     Scenario: Example CMS Test

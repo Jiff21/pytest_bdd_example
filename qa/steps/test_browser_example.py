@@ -6,10 +6,11 @@ from qa.config.conftest import PAGES_DICT
 
 
 # Set steps for multiple scenarios, also relative to path set in pytest.ini
-scenarios(
-    'browser_example.feature',
-    'about.feature'
-)
+# scenarios(
+#     'browser_example.feature',
+#     'about.feature'
+# )
+scenarios('browser_example.feature','about.feature')
 
 @given(parsers.parse("I get the {page_name} page"))
 @when(parsers.parse("I get the {page_name} page"))
