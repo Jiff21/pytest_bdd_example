@@ -1,7 +1,8 @@
 import pytest
 import requests
-from qa.steps.browser import Browser
 from qa.config.conftest import DRIVER, IAP_ON, PAGES_DICT, HOST_URL
+from selenium.webdriver.support.ui import WebDriverWait
+from qa.steps.browser import Browser
 
 class Context(object):
     """An empty object to add stuff to"""
@@ -43,5 +44,7 @@ def driver(context, scope="module"):
     browser = Browser()
     browsers = browser.return_driver_dict()
     context.driver = browsers.get(DRIVER)()
+    # Setup a default wait
+    context.wait = WebDriverWait(context.driver, 10, 0.1)
     yield context.driver
     context.driver.quit()
