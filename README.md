@@ -25,7 +25,7 @@ pytest
 
 ```bash
 ## Source environmental variables
-source qa/config/test.env
+source qa/test.env
 ## Source Secret variables if you're using IAP
 source qa/secrets/test.env
 # -n set to run tests in parellel

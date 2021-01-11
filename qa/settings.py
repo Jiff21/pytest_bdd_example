@@ -125,8 +125,6 @@ default_headers = {
         'Chrome/76.0.3809.100 Safari/537.36, QA Tests'
     )
 }
-# from pytest_bdd import scenarios
-# scenarios('../features')
 
 # log.info('QA_ENV is set to {}'.format(QA_ENV))
 log.info('DRIVER is set to {}'.format(DRIVER))
@@ -134,24 +132,3 @@ log.info('IAP_ON is set to {}'.format(IAP_ON))
 log.info('Host url is %s' % HOST_URL)
 log.info('Admin url is %s' % ADMIN_URL)
 log.info('Proxy passthrough set to {}'.format(PROXY_PASSTHROUGH))
-
-
-from pytest_bdd import given, when, then, parsers
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from qa.steps.environment import context, driver
-
-
-def send_key_x_times(context, key, number_of_times):
-    i = 0
-    while i < number_of_times:
-        action = ActionChains(context.driver)
-        action.send_keys(key).perform()
-        i += 1
-        time.sleep(0.25)
-
-
-@when(parsers.parse('I hit the tab key {number} time(s)'))
-def step_impl(context, number):
-    send_key_x_times(context, Keys.TAB, number)
-    context.current_element = context.driver.switch_to.active_element

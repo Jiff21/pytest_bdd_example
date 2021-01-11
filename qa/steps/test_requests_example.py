@@ -1,7 +1,7 @@
 import requests
 from functools import partial
 from pytest_bdd import scenario, given, when, then, parsers, scenarios
-from qa.config.conftest import PAGES_DICT
+from qa.settings import PAGES_DICT
 from qa.steps.environment import context, client
 
 
