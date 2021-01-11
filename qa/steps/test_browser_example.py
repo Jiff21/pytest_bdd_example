@@ -5,17 +5,16 @@ from functools import partial
 from pytest_bdd import scenario, given, when, then, parsers
 from qa.conftest import PAGES_DICT
 
-# Set file path here in case you have multiple scenarios
+# Set file path here in case you have multiple scenarios.
+# Part of path set in pytest.ini.
 scenario = partial(scenario, 'browser_example.feature')
-
-@scenario(
-    'Browser can get correct page',
-)
+@scenario('Browser can get correct page')
 def test_browser():
     pass
 
 
 @given(parsers.parse("I get the {page_name} page"))
+@when(parsers.parse("I get the {page_name} page"))
 def get(context, driver, page_name):
     context.page_name = page_name.lower()
     context.current_url = '{host}{uri}'.format(

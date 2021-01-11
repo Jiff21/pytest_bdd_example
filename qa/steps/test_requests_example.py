@@ -5,12 +5,10 @@ from functools import partial
 from pytest_bdd import scenario, given, when, then, parsers
 from qa.conftest import PAGES_DICT
 
-# Set file path here in case you have multiple scenarios
+# Set file path here in case you have multiple scenarios.
+# Part of path set in pytest.ini.
 scenario = partial(scenario, 'requests_example.feature')
-
-@scenario(
-    'Requests goes to expected page',
-)
+@scenario('Requests goes to expected page')
 def test_requests():
     pass
 

@@ -23,6 +23,7 @@ wheels/
 MANIFEST
 env/
 qa/env/
+.vscode/
 
 .tmp
 .DS_Store
