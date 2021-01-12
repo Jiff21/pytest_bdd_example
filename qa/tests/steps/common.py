@@ -18,3 +18,21 @@ def assert_page(context, driver, expected_page):
         expected_host=context.host,
         current_host=context.driver.current_url
     )
+
+@when('I check the console logs')
+def check_console(context, driver):
+    context.console_errors = []
+    for entry in context.driver.get_log('browser'):
+        try:
+            assert "SEVERE" not in entry['level']
+        except AssertionError:
+            context.console_errors.append(
+                "On Page: %s. Expeced no errors in log instead got:\n%s" % (
+                    context.current_url,
+                    str(entry)
+                )
+            )
+
+@then('there should be no severe console log errors')
+def check_no_severe_errors(context, driver):
+    assert len(context.console_errors) == 0, loop_thru_messages(context.console_errors)
