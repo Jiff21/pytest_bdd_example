@@ -68,3 +68,9 @@ cp -R reports/history/ results/history
 ### Tips
 
 More pytest info can be found [here](https://docs.pytest.org/en/stable/example/simple.html).
+
+#### View Live Logs
+
+```
+LOG_LEVEL=INFO pytest  -o log_cli=true
+```

@@ -45,4 +45,5 @@ bmp.log
 qa/geckodriver.log
 qa/jmeter.log
 log.txt
+pytest.log
 qa/log.txt
