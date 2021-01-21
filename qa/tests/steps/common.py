@@ -5,11 +5,13 @@ from pytest_bdd import given, when, then, parsers
 from qa.tests.environment import context, driver
 from qa.settings import PAGES_DICT
 
+
 @given(parsers.parse("I get the {page_name} page"))
 @when(parsers.parse("I get the {page_name} page"))
 def get(context, driver, page_name):
     context.current_url = context.human_readable_pages(page_name, context.host)
     context.driver.get(context.current_url)
+
 
 @then(parsers.parse('I should be on {expected_page}'))
 def assert_page(context, driver, expected_page):
@@ -18,6 +20,7 @@ def assert_page(context, driver, expected_page):
         expected_host=context.host,
         current_host=context.driver.current_url
     )
+
 
 @when('I check the console logs')
 def check_console(context, driver):
@@ -32,6 +35,7 @@ def check_console(context, driver):
                     str(entry)
                 )
             )
+
 
 @then('there should be no severe console log errors')
 def check_no_severe_errors(context, driver):
