@@ -1,6 +1,5 @@
 # Pytest BDD setup similar to Behave
 
-
 ## Install
 
 ```bash
@@ -9,7 +8,6 @@ source qa/env/bin/activate
 pip install -r qa/requirements.txt
 ./qa/utilities/chromedriver.sh
 ```
-
 
 ## Run
 
@@ -40,7 +38,8 @@ pytest -k 'requests'
 
 ### Run a Single Scenario
 
-Use the associated function name from `@scenerio` decorator.
+Use the associated function name from `@scenerio` decorator or `test_` + the
+scenario name from the feature file with spaces replaced with underscores
 
 ```bash
 pytest -k 'function_name'
@@ -71,6 +70,16 @@ More pytest info can be found [here](https://docs.pytest.org/en/stable/example/s
 
 #### View Live Logs
 
-```
+```bash
 LOG_LEVEL=INFO pytest  -o log_cli=true
+```
+
+
+The pytest-bdd Gherkin Reporter will work if you pass `-v` but it does not
+appear live with test run and there is a
+[bug](https://github.com/pytest-dev/pytest-bdd/issues/214) where it does not
+color passed and failed steps correctly.
+
+```bash
+--gherkin-terminal-reporter -v
 ```
