@@ -126,6 +126,10 @@ default_headers = {
     )
 }
 
+USER_EMAIL = os.getenv('USER_EMAIL', 'fakeUser3@gmail.com')
+USER_PASSWORD = os.getenv('USER_PASSWORD', 'fakepassword')
+USER_NAME = os.getenv('USER_NAME', 'Vinny Testaverde')
+
 # log.info('QA_ENV is set to {}'.format(QA_ENV))
 log.info('DRIVER is set to {}'.format(DRIVER))
 log.info('IAP_ON is set to {}'.format(IAP_ON))
