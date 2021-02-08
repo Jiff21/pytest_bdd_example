@@ -7,8 +7,9 @@ from qa.tests.environment import context, client
 
 # Set file path here in case you have multiple scenarios.
 # Part of path set in pytest.ini.
-scenario = partial(scenario, 'requests_example.feature')
+scenario = partial(scenario, 'features/requests_example.feature')
 @scenario('Requests goes to expected page')
+
 def test_requests():
     pass
 

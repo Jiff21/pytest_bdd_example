@@ -1,11 +1,14 @@
 # -*- coding: UTF-8 -*-
-# redefinition of unused: pylint: disable=F811
+# MISSING-DOCSTRING: pylint: disable=C0111
+# CONTEXT REDEFINED: pylint: disable=W0621
+
 '''Accessiblity Steps'''
 import time
 from pytest_bdd import when, then, parsers
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from qa.tests.steps.workarounds import scroll_to_nav_out_of_way
+from qa.tests.steps.workarounds import scroll_nav_out_of_way
+from qa.tests.steps.workarounds import scroll_footer_out_of_way
 from qa.settings import USER_EMAIL, USER_PASSWORD
 
 
@@ -20,7 +23,7 @@ def send_key_x_times(context, key, number_of_times):
 
 # Generic step that can be used when writing a feature file for debugging tab numbers
 @when(parsers.parse('I sleep {number:d} seconds'))
-def when_i_sleep(context, number):
+def when_i_sleep(number):
     time.sleep(number)
 
 
@@ -125,10 +128,16 @@ def current_size_expects(context, width_or_height, more_less_equal, expected_siz
         assert size == expected_size, 'Expected it to be equal to %i' \
             ' instead got %i' % (expected_size, size)
     else:
-        assert False, 'Unexpected value for more_less_equal,' \
-            ' got: %s' % more_less_equal
+        assert False, 'Unexpected value for more_less_equal, got: %s' % (
+            more_less_equal
+        )
 
 
 @when('I scroll the nav out of the way')
 def scroll_nav_out_way(context):
-    scroll_to_nav_out_of_way(context.driver)
+    scroll_nav_out_of_way(context.driver)
+
+
+@when('I scroll the footer out of the way')
+def scroll_footer_out_way(context):
+    scroll_footer_out_of_way(context.driver)
