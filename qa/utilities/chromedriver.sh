@@ -1,24 +1,20 @@
 #!/bin/bash
 
-LATEST_CHROMEDRIVER=$(curl https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-
+LATEST_CHROMEDRIVER=$(curl "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE")
 echo 'Downloading Chromedriver ' $LATEST_CHROMEDRIVER
+
 if [ "$(uname)" == "Darwin" ]; then
   echo 'on OSX 64'
-  curl -L https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_mac64.zip >> chromedriver.zip
-  unzip chromedriver.zip
-  mv chromedriver env/bin/chromedriver
-  rm chromedriver.zip
+  curl -L "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$LATEST_CHROMEDRIVER/mac-x64/chromedriver-mac-x64.zip" | tar xz -C qa/env/bin
+  mv qa/env/bin/chromedriver-mac-x64/chromedriver qa/env/bin
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   echo 'on Linux 64'
-  curl -L https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_linux64.zip >> chromedriver.zip
-  unzip chromedriver.zip
-  mv chromedriver /usr/bin/chromedriver
-  rm chromedriver.zip
+  curl -L "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$LATEST_CHROMEDRIVER/linux64/chromedriver-linux64.zip" | tar xz -C qa/env/bin
+  mv qa/env/bin/chromedriver-linux64/chromedriver qa/env/bin
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
   echo 'on Windows 32'
-  curl -L https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_win32.zip >> chromedriver.zip
-  unzip chromedriver.zip
-  mv chromedriver /usr/bin/chromedriver
-  rm chromedriver.zip
+  curl -L https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_win64.zip | tar xz -C qa/env/bin
+  mv qa/env/bin/chromedriver_win64/chromedriver qa/env/bin
 fi
+
+chmod +x qa/env/bin/chromedriver
