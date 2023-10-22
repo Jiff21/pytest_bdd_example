@@ -1,5 +1,5 @@
-pytest-bdd==4.0.2
+pytest-bdd==7.0.0
 requests==2.31.0
 selenium==4.14.0
-pytest-xdist==2.2.0
-allure-pytest-bdd==2.8.29
+pytest-xdist==3.3.1
+allure-pytest-bdd==2.13.2

@@ -10,7 +10,6 @@ from qa.tests.steps.workarounds import LocalStorage
 from qa.settings import DRIVER, IAP_ON, PAGES_DICT, HOST_URL
 from qa.tests.browser import Browser
 
-
 class Context():
     """An empty object to add stuff to"""
 
