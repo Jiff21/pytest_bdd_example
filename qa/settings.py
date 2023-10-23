@@ -22,6 +22,8 @@ IAP_ON = bool(os.getenv('IAP_ON', False))
 
 if 'localhost' in HOST:
     HOST_URL = os.getenv('HOST_URL', 'http://%s:%s' % (HOST, PORT))
+elif 'uitestingplayground' in HOST:
+    HOST_URL = os.getenv('HOST_URL', 'http://{}'.format(HOST))
 else:
     HOST_URL = os.getenv('HOST_URL', 'https://%s' % HOST)
 
@@ -109,9 +111,8 @@ USER_EMAIL = os.getenv('USER_EMAIL', 'fakeUser3@gmail.com')
 USER_PASSWORD = os.getenv('USER_PASSWORD', 'fakepassword')
 USER_NAME = os.getenv('USER_NAME', 'Vinny Testaverde')
 
-# log.info('QA_ENV is set to {}'.format(QA_ENV))
 log.info('DRIVER is set to {}'.format(DRIVER))
 log.info('IAP_ON is set to {}'.format(IAP_ON))
-log.info('Host url is %s' % HOST_URL)
-log.info('Admin url is %s' % ADMIN_URL)
+log.info('Host url is {}'.format(HOST_URL))
+log.info('Admin url is {}'.format(ADMIN_URL))
 log.info('Proxy passthrough set to {}'.format(PROXY_PASSTHROUGH))
