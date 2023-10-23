@@ -7,21 +7,21 @@ from qa.tests.environment import context, client
 
 # Set file path here in case you have multiple scenarios.
 # Part of path set in pytest.ini.
-scenario = partial(scenario, 'features/requests_example.feature')
-@scenario('Requests goes to expected page')
+# scenario = partial(scenario, 'features/requests_example.feature')
+# @scenario('Requests goes to expected page')
 
-def test_requests():
-    pass
+# def test_requests():
+#     pass
 
 
 @given(parsers.parse("I get {page_name} using requests"))
-def get(context, client, page_name):
+def get_with_requets(context, client, page_name):
     context.current_url = context.human_readable_pages(page_name, context.host)
     context.response = client.get(context.current_url)
     return context.response
 
 
 @then('the response should be successful')
-def foo_is_foo(context, page_name):
+def response_succeeded(context, page_name):
     assert context.response.status_code is requests.codes.ok, \
         'Unexpectedly got a %d response code' % context.response.status_code
