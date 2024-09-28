@@ -16,7 +16,7 @@ pip install -r qa/requirements.txt
 Run tests against Local Dev
 
 ```bash
-pytest
+pytest --gherkin-terminal-reporter -vvs
 ```
 
 ## Run on an environment

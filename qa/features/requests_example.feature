@@ -1,6 +1,6 @@
-@smoke @normal @profile #test suite #priority #feature-name
-Feature: Requests can get page
+@smoke @normal @home #priority #feature-name
+Feature: Example Requests test
 
-    Scenario: Requests goes to expected page
-        Given I get index using requests
+    Scenario: Requests receives a success message
+        When I get the index page using requests
         Then the response should be successful
