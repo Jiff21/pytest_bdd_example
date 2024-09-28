@@ -6,4 +6,7 @@ from pytest_bdd import scenarios, given, when, then, parsers
 # scenarios('features/browser_example.feature','features/about.feature')
 scenarios('features')
 
-# Curretly using steps from qa/tests/steps, but steps specific to this test could be set below.
+# Function name must include test_ and be unique
+# def test_all_tests_in_features():
+#     steps for this test found in conftest.py
+#     pass

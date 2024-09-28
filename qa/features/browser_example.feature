@@ -1,4 +1,4 @@
-@normal @home #priority #feature-name
+@normal @home
 Feature: Example selenium test
 
     Scenario: Browser can get correct page

@@ -1,6 +1,6 @@
-@smoke @normal @home #priority #feature-name
+@smoke @normal @home
 Feature: Example Requests test
 
     Scenario: Requests receives a success message
-        When I get the index page using requests
+        When I get the index using requests
         Then the response should be successful
